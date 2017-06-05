@@ -2,6 +2,8 @@
 #include "Huffman.h"
 
 #include <map>
+#include <chrono>
+#include <iostream>
 
 pair<size_t, size_t> huffman::code(const string& text)
 {
@@ -21,6 +23,9 @@ pair<size_t, size_t> huffman::code(const string& text)
 		nodes.push(new node(pair.first, pair.second));
 	}
 
+	// time measurement
+	auto init = chrono::high_resolution_clock::now();
+
 	// create huffman tree
 	while (nodes.size() > 1)
 	{
@@ -32,6 +37,11 @@ pair<size_t, size_t> huffman::code(const string& text)
 
 		nodes.push(new node(left, right));
 	}
+
+	// end of time measurement
+	auto end = chrono::high_resolution_clock::now();
+
+	cout << "Time spent building tree: " << chrono::duration_cast<chrono::microseconds>(end - init).count() << endl;
 
 	if (frequencies.size() == 1)
 		return make_pair(text.size() * 8, text.size());
