@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 	// initialize message
 	if (argc == 1)
 	{
-		cin >> message;
+		getline(cin, message);
 	}
 	else
 	{
@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 			return 1;
 		}
 
-		file >> message;
+		getline(file, message);
 
 		file.close();
 	}

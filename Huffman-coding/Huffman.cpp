@@ -49,10 +49,10 @@ pair<size_t, size_t> huffman::code(const string& text)
 	// calculate size of the message
 	auto size = initialize_bits(nodes.top());
 
-	return make_pair(text.size() * 8, size);
+	return make_pair(text.size() * 8u, size);
 }
 
-long long int huffman::initialize_bits(node* root, int count)
+size_t huffman::initialize_bits(node* root, size_t count)
 {
 	// count is the counting of necessary bits to represents a character in the tree
 	// node is leaf then return the frequence * count

@@ -38,5 +38,5 @@ private:
 		}
 	};
 
-	static long long int initialize_bits(node* root, int count = 0);
+	static size_t initialize_bits(node* root, size_t count = 0);
 };
